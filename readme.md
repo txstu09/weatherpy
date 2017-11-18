@@ -1,5 +1,12 @@
+# WeatherPy
+### Analysis
+* Trend 1
+* Trend 2
+* Trend 3
 
-
+#### Packages
+Notes
+* openweathermapy - wrapper for OpenWeatherMap API
 ```python
 import json
 import requests
