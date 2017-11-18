@@ -1,5 +1,16 @@
+# WeatherPy
+### Analysis
+* Trend 1
+* Trend 2
+* Trend 3
 
 
+### Packages
+Notes:
+* openweathermapy - OpenWeatherMap API wrapper
+* config - OpenWeatherMap API key
+* citipy - finds nearest city for a set of geo coordinates
+* geopy - geocoding toolset, using for distance calculations between coordinates
 ```python
 import json
 import requests
@@ -23,10 +34,11 @@ owm_settings = {"units": "imperial", "appid": api_key}
 owm_city_json = json.load(open('city.list.json', encoding='utf8'))
 ```
 
+## Generate random list of unique cities
+Creates random coordinates and then uses citipy to pull nearest city.  Runs check against OpenWeatherMap city list to ensure OWM has data available.  Also grabs city coordinates for distance check.  Using vincenty formula from geopy to calculate distance between random coordinate and nearest city.  If distance is greater than 69 miles then city is not added to the generated city list.  Using 69 miles as cutoff since this is roughly the distance between each degree of latitude or longitude at the equator.  Helps to avoid data points which initially fall in empty zones (i.e. oceans).
+NOTE: Using vincenty instead fo great circle due to greater accuracy.  Vincenty can return incorrect results with antipodal points however in this application no random coordinate will have its nearest city as an antipode.
 
 ```python
-#WORKING#
-
 city_count = 600
 counter = 0
 
@@ -68,11 +80,10 @@ while counter != city_count:
 print('...selection complete')
 ```
 
-    Randomly selecting 600 cities...
-    ...selection complete
+
     
 
-
+### Cache generated city list
 ```python
 #Export generated city list to csv
 with open('my_city.list.csv', 'w') as fileout:
@@ -80,9 +91,8 @@ with open('my_city.list.csv', 'w') as fileout:
     writer.writerow(cities)
 ```
 
-
+### Plot city locations to check for possible clusters
 ```python
-#Plot city locations to verify global distribution and no hidden clusters
 plt.figure(figsize=(10,7))
 
 plt.scatter(longitudes, latitudes)
@@ -98,12 +108,11 @@ plt.show()
 ```
 
 
-![png](output_4_0.png)
+![png](images/city_distribution.png)
 
 
-
+## Retrieve city specific weather data from OpenWeatherMap
 ```python
-#Retrieve weather data from OpenWeatherMap
 counter = 1
 data = []
 
@@ -726,14 +735,14 @@ print('---------------------------------\nData Retrieval Complete\n-------------
     ---------------------------------
     
 
-
+### Cache retrieved API data
 ```python
 #Save retrieved OWM data to json file
 with open('owm_data.json', 'w') as outfile:  
     json.dump(data, outfile)
 ```
 
-
+### Extract max temp, humidity, cloudiness, and wind speed data for each city
 ```python
 #Create dataframe with city weather data
 weather_values = []
@@ -867,9 +876,8 @@ city_data_df.head()
 
 
 
-
+## Latitude vs. Max Temperature Plot
 ```python
-#Plot latitude vs max temperature
 plt.figure(figsize=(10,7))
 plt.scatter(city_data_df['Lat'], city_data_df['Max Temp'], edgecolors='black', facecolors='red')
 plt.title('City Latitude vs. Max Temperature (2017-11-17)', size='15')
@@ -882,12 +890,11 @@ plt.show()
 ```
 
 
-![png](output_9_0.png)
+![png](images/max_temps.png)
 
 
-
+## Latitude vs. Humidity Plot
 ```python
-#Plot latitude vs humidity
 plt.figure(figsize=(10,7))
 plt.scatter(city_data_df['Lat'], city_data_df['Humidity'], edgecolors='black', facecolors='blue')
 plt.title('City Latitude vs. Humidity (2017-11-17)', size='15')
@@ -900,12 +907,11 @@ plt.show()
 ```
 
 
-![png](output_10_0.png)
+![png](images/humidity.png)
 
 
-
+## Latitude vs. Cloudiness Plot
 ```python
-#Plot latitude vs cloudiness
 plt.figure(figsize=(10,7))
 plt.scatter(city_data_df['Lat'], city_data_df['Cloudiness'], edgecolors='black', facecolors='blue')
 plt.title('City Latitude vs. Cloudiness (2017-11-17)', size='15')
@@ -918,12 +924,11 @@ plt.show()
 ```
 
 
-![png](output_11_0.png)
+![png](images/cloudiness.png)
 
 
-
+## Latitude vs. Wind Speed Plot
 ```python
-#Plot latitude vs wind speed
 plt.figure(figsize=(10,7))
 plt.scatter(city_data_df['Lat'], city_data_df['Wind Speed'], edgecolors='black', facecolors='blue')
 plt.title('City Latitude vs. Wind Speed (2017-11-17)', size='15')
@@ -936,5 +941,5 @@ plt.show()
 ```
 
 
-![png](output_12_0.png)
+![png](images/wind_speeds.png)
 
