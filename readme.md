@@ -1,8 +1,9 @@
 # WeatherPy
 ### Analysis
-* Trend 1
-* Trend 2
-* Trend 3
+* Data is biased towards the northern hemisphere due to greater landmass and therefore more cities.
+* Lower latitude negatively coorelates with higher temperatures.  As the latitude decreases, temperature increases.
+* Humidity and cloudiness do not coorelate with latitude.  A range of humidities and cloudiness can be found accross all latitudes.
+* There appears to be a weak positive correlation between wind speed and latitude.  Higher latitudes have moderately increased wind speed, however further analysis would be necessary to draw a stronger conclusion.
 
 
 ### Packages
