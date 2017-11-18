@@ -113,6 +113,7 @@ plt.show()
 
 
 ## Retrieve city specific weather data from OpenWeatherMap
+NOTE: OpenWeatherMap free API tier has a rate limit of 60 calls per minute.  To avoid hitting this, each call is delayed by 1 second before proceeding.
 ```python
 counter = 1
 data = []
