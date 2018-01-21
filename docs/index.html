@@ -62,15 +62,15 @@
         <div class="row">
             <div class="customDiv" id="data">
                 <h2>Gathering the data</h2>
-                <div class="row">
+                <div class="row" style="margin-bottom: 50px">
                     <div class="col-md-6 col-md-offset-3">
                         <p>
                             Explanation about generating a list of cities and checking for coordinate validity.
                         </p>
-                        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                            Show code
+                        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#code1" aria-expanded="false" aria-controls="collapseExample">
+                            View code
                         </a>
-                        <div class="collapse" id="collapseExample">
+                        <div class="collapse" id="code1">
                             <div>
                                 <pre style="text-align: left">
                                         city_count = 600
@@ -6732,6 +6732,35 @@
                             </tr>
                         </tbody>
                     </table>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3">
+                        <p style="padding-top: 50px">Plot all data points to confirm even global distribution of city selection.</p>
+                        <img src="images/city_distribution.png">
+                        <p style="padding-top: 50px">Retrieve data from OpenWeatherMap</p>
+                        <a class="btn btn-primary" role="button" data-toggle="collapse" href="#code2" aria-expanded="false" aria-controls="collapseExample">
+                            View code
+                        </a>
+                        <div class="collapse" id="code2">
+                            <div>
+                                <pre style="text-align: left">
+                                    counter = 1
+                                    data = []
+                                    
+                                    print('---------------------------------\nBeginning Data Retrieval\n---------------------------------')
+                                    for city in cities:
+                                        current_weather = owm.get_current(int(city), **owm_settings)
+                                        data.append(current_weather)
+                                        print(f'Processing record {"{0:>3s}".format(str(counter))} of {len(cities)} | {current_weather["name"]},
+                                            {current_weather["sys"]["country"]}')
+                                        counter = counter + 1
+                                        time.sleep(1)
+                                        
+                                    print('---------------------------------\nData Retrieval Complete\n---------------------------------')
+                                </pre>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
