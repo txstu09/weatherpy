@@ -1,0 +1,51 @@
+html, body, .container-fluid{
+    height:100%;
+}
+body {
+    padding-top: 50px;
+}
+.container-fluid {
+    padding-left: 0px;
+    padding-right: 0px;
+    
+}
+.landing-center {
+    display: flex;
+    align-items: center;
+}
+.tablescroll {  
+    height: 300px;
+    overflow-y: scroll;
+    border: 1px solid;
+}
+.table th {
+    text-align: center;   
+}
+.customDiv {
+    margin: 0px;
+    background-color: white;
+    text-align: center;
+    font-size: large;
+    padding: 0px;
+}
+.customDiv2 {
+    margin: 0px;
+    background-color: white;
+    text-align: left;
+    font-size: large;
+    padding: 0px;
+}
+#landing {
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+    text-align: center;
+    background-color: #85C1E9;
+}
+#plots {
+    background-color: #F8C471;
+}
+
+.fill {
+    height: 100%;
+}
