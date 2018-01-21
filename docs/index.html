@@ -6736,7 +6736,7 @@
                 <div class="row">
                     <div class="col-md-6 col-md-offset-3">
                         <p style="padding-top: 50px">Plot all data points to confirm even global distribution of city selection.</p>
-                        <img src="images/city_distribution.png">
+                        <img src="images/city_distribution.png" class="img-responsive center-block">
                         <p style="padding-top: 50px">Retrieve data from OpenWeatherMap</p>
                         <a class="btn btn-primary" role="button" data-toggle="collapse" href="#code2" aria-expanded="false" aria-controls="collapseExample">
                             View code
@@ -6766,7 +6766,11 @@
         </div>
         <div class="row">
             <div class="customDiv" id="plots">
-                
+                <h2>Plotting the data</h2>
+                <p>
+                    Using the data gathered from OpenWeatherMap, our weather variables can be plotted against latitude.
+                    From these plots we can determine how weather changes as we traverse latitudes.
+                </p>
             </div>
         </div>
         <div class="row">
@@ -6774,13 +6778,11 @@
                 <div class="col-md-5 col-md-offset-1">
                     <img class="img-responsive center-block" src="images/max_temps.png">
                 </div>
-                <div class="col-md-5">
+                <div class="col-md-5" style="text-align: left">
                     <h2>Maximum Temperatures</h2>
                     <p>
-                        Curabitur dolor lacus, ullamcorper id neque in, facilisis tincidunt purus. 
-                        Etiam elit quam, efficitur vitae lectus eget, ultricies consequat neque. 
-                        In iaculis, purus at porttitor congue, quam ex molestie elit, vel tincidunt justo mauris sit amet neque. 
-                        Morbi fringilla finibus nisl at fringilla
+                        As expected, we can see that lower latitudes (closer to the equator) have higher maximum temperatures.
+                        The further north and south we move form the equator, maximum temperatures begin to fall.
                     </p>
                 </div>
             </div>
@@ -6790,13 +6792,18 @@
                 <div class="col-md-5 col-md-offset-1">
                     <img class="img-responsive center-block" src="images/humidity.png">
                 </div>
-                <div class="col-md-5">
+                <div class="col-md-5" style="text-align: left">
                     <h2>Humidity</h2>
                     <p>
-                        Curabitur dolor lacus, ullamcorper id neque in, facilisis tincidunt purus. 
-                        Etiam elit quam, efficitur vitae lectus eget, ultricies consequat neque. 
-                        In iaculis, purus at porttitor congue, quam ex molestie elit, vel tincidunt justo mauris sit amet neque. 
-                        Morbi fringilla finibus nisl at fringilla
+                        Unlike the temperature plot, plotting humidity appears to indicate that there is no correlation between humidity and latitude.
+                        From the equator to the poles there is a range of reported humidity levels.
+                    </p>
+                    <h3>Special note about humidity:</h3>
+                    <p>
+                        Here we are looking at relative humidity which is the most common 
+                        humidity measurement.  Relative humidity is directly dependent on the temperature of the surrounding air since cold air holds less moisture
+                        than warm air.  So while Ayan, Russia and Port Blair, India both have a humidity of 100%, because the temperature in Ayan was 5.5&degF versus 84&degF
+                        in Port Blair, the amount of water vapor in the air will be significantly lower in Ayan due to the colders temperature.
                     </p>
                 </div>
             </div>
@@ -6806,13 +6813,17 @@
                 <div class="col-md-5 col-md-offset-1">
                     <img class="img-responsive center-block" src="images/cloudiness.png">
                 </div>
-                <div class="col-md-5">
+                <div class="col-md-5" style="text-align: left">
                     <h2>Cloudiness</h2>
                     <p>
-                        Curabitur dolor lacus, ullamcorper id neque in, facilisis tincidunt purus. 
-                        Etiam elit quam, efficitur vitae lectus eget, ultricies consequat neque. 
-                        In iaculis, purus at porttitor congue, quam ex molestie elit, vel tincidunt justo mauris sit amet neque. 
-                        Morbi fringilla finibus nisl at fringilla
+                        Similar to humidity, cloudiness does not appear to correlate with latitude.  There are a range of cloudiness percentages across
+                        all latitudes in both hemispheres.
+                    </p>
+                    <h3>Special note about cloudiness:</h3>
+                    <p>
+                        While the general mechanics of cloud formation would suggest that higher moisture in the air (i.e. closer to the equator)
+                        would result in greater cloud coverage, we can see here that is not necessarily the case.  This indicates that there are other 
+                        weather variables which play a role in overall cloudiness, and indeed the cloud feedback cycle is known uncertainty in climate science.
                     </p>
                 </div>
             </div>
@@ -6822,13 +6833,13 @@
                 <div class="col-md-5 col-md-offset-1">
                     <img class="img-responsive center-block" src="images/wind_speeds.png">
                 </div>
-                <div class="col-md-5">
+                <div class="col-md-5" style="text-align: left">
                     <h2>Wind Speeds</h2>
                     <p>
-                        Curabitur dolor lacus, ullamcorper id neque in, facilisis tincidunt purus. 
-                        Etiam elit quam, efficitur vitae lectus eget, ultricies consequat neque. 
-                        In iaculis, purus at porttitor congue, quam ex molestie elit, vel tincidunt justo mauris sit amet neque. 
-                        Morbi fringilla finibus nisl at fringilla
+                        Wind speeds do not show a strong correlation with latitude although there does appear to be a weak correlation.  A small dip in wind speeds
+                        can be seen near the equator with the highest wind speeds being recorded at high latitudes.  However there's not enough here to draw any conclusions
+                        and more work would need to be done in order to account for isolated weather patterns (e.g. tropical storm moving past a weather station at the time
+                        of reading).
                     </p>
                 </div>
             </div>
@@ -6844,6 +6855,7 @@
                         <li>There appears to be a weak positive correlation between wind speed and latitude. 
                             Higher latitudes have moderately increased wind speed, however further analysis would be necessary to draw a stronger conclusion.
                         </li>
+                        <li>Single day datapoints.  Allows for broad generalizations but would need data gathered over multiple days thorughout the year to draw detailed conlusions.</li>
                     </ul>
                 </div>
             </div>
