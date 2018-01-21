@@ -45,15 +45,11 @@
     <div class="container-fluid">
         <div class="row">
             <div class="customDiv">
-                <div class="col-md-6 col-md-offset-3 col-xs-12">
-                    <h1>Intro</h1>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla posuere tempor libero, 
-                        ut tempor leo eleifend eu. Quisque fermentum enim tristique felis tempor, 
-                        sit amet viverra elit sodales. Fusce porta metus quis vulputate placerat. Fusce sed accumsan massa. 
-                        Sed ornare, nulla elementum iaculis consequat, urna sem interdum massa, quis imperdiet nisl libero sed mi. 
-                        Phasellus volutpat sem ac ornare sodales. Morbi mi libero, viverra et consequat at, gravida sed erat.
-                    </p>
+                <div class="col-md-8 col-md-offset-2 col-xs-12">
+                    <h1>Latitudinal Weather</h1>
+                    <h2>Does latitude have any effect on the weather?</h2>
+                    <hr>
+                    <p>Using the power of Python we can obtain weather data from across the globe and settle this this burning scientific question.</p>
                 </div>
             </div>
         </div>
@@ -6838,7 +6834,7 @@
                     <p>
                         Wind speeds do not show a strong correlation with latitude although there does appear to be a weak correlation.  A small dip in wind speeds
                         can be seen near the equator with the highest wind speeds being recorded at high latitudes.  However there's not enough here to draw any conclusions
-                        and more work would need to be done in order to account for isolated weather patterns (e.g. tropical storm moving past a weather station at the time
+                        and more work would need to be done in order to account for isolated weather events (e.g. tropical storm moving past a weather station at the time
                         of reading).
                     </p>
                 </div>
@@ -6847,15 +6843,25 @@
         <div class="row">
             <div class="customDiv2" id="summary">
                 <div class="col-md-6 col-md-offset-3">
-                    <h2>Summary</h2>
+                    <h2>Equator = hot, Poles = cold</h2>
+                    <p>
+                        Of the four weather variables examined, only temperature shows a strong correlation with latitude.  While we can't rule out the possibility that 
+                        latitude may be a factor in humidity, cloudiness, and wind speeds, the lack of correlation indicates there are other much stronger factors which 
+                        influence the readings.
+                    </p>
+                    <h3>Thigns to consider...</h3>
                     <ul>
                         <li>Data is biased towards the northern hemisphere due to greater landmass and therefore more cities.</li>
-                        <li>Lower latitude negatively coorelates with higher temperatures. As the latitude decreases, temperature increases.</li>
-                        <li>Humidity and cloudiness do not coorelate with latitude. A range of humidities and cloudiness can be found accross all latitudes.</li>
-                        <li>There appears to be a weak positive correlation between wind speed and latitude. 
-                            Higher latitudes have moderately increased wind speed, however further analysis would be necessary to draw a stronger conclusion.
+                        <li>Converting relative humidity to specific humidity may provide better insight as that would account for the density of water in the air.</li>
+                        <li>To obtain better wind speed analysis, other factors such as current weather events and elevation should be controlled for.</li>
+                        <li>
+                            Time of day was not accounted for in any of the data.  Measurements taken at night have the potential to be drastically different than those 
+                            taken during the day. (E.g. desert regions having large temperature swings and the effect that has on localized weather)
                         </li>
-                        <li>Single day datapoints.  Allows for broad generalizations but would need data gathered over multiple days thorughout the year to draw detailed conlusions.</li>
+                        <li>
+                            All data comes from a single day.  A better approach would be to analyze readings for each city on multiple days throughout the year. 
+                            This would help alleviate issues of seasonality.
+                        </li>
                     </ul>
                 </div>
             </div>
